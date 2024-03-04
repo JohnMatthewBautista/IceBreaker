@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://data/fonts/FFFFORWA.tres" type="DynamicFont" id=1]
+[ext_resource path="res://data/scripts/Start.gd" type="Script" id=2]
 [ext_resource path="res://data/fonts/TeenyTinyPixls-o2zo.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://data/sprites/Temple.tres" type="TileSet" id=4]
 
@@ -8,18 +9,19 @@
 size = 10
 font_data = ExtResource( 3 )
 
-[node name="Start" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -756.0
-margin_bottom = -432.0
+[node name="Main" type="Node"]
+script = ExtResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Start" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Start"]
 margin_right = 84.0
 margin_bottom = 48.0
 color = Color( 0.262745, 0.321569, 0.239216, 1 )
 
-[node name="Background" type="TileMap" parent="."]
+[node name="Background" type="TileMap" parent="Start"]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 8
@@ -27,7 +29,7 @@ cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 4, 0, 0, 5, 3, 0, 65539, 0, 0, 65540, 4, 0, 65541, 3, 0, 131074, 0, 0, 131075, 4, 0, 131076, 5, 0, 131077, 3, 0 )
 
-[node name="Background2" type="TileMap" parent="."]
+[node name="Background2" type="TileMap" parent="Start"]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 8
@@ -35,7 +37,7 @@ cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 5, -536870908, 0, 65540, 1610612736, 0, 65541, -536870908, 0, 131072, 536870919, 0, 131073, 536870916, 0, 131075, 1610612736, 0, 131076, 1610612737, 0, 131077, -536870908, 0 )
 
-[node name="Title" type="RichTextLabel" parent="."]
+[node name="Title" type="RichTextLabel" parent="Start"]
 margin_left = 2.0
 margin_top = 3.0
 margin_right = 68.0
@@ -47,7 +49,7 @@ bbcode_text = "[center]Ice Breaker"
 text = "Ice Breaker"
 fit_content_height = true
 
-[node name="Instruct" type="RichTextLabel" parent="."]
+[node name="Instruct" type="RichTextLabel" parent="Start"]
 margin_left = 3.0
 margin_top = 17.0
 margin_right = 60.0
@@ -63,7 +65,7 @@ text = "Start
 [space]"
 fit_content_height = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Start"]
 position = Vector2( 42, 25 )
 current = true
 zoom = Vector2( 0.1, 0.1 )

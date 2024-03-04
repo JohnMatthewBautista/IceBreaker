@@ -20,9 +20,6 @@ func _ready():
 	mc = get_parent().get_node("MainCharacter")
 	main = get_parent().get_parent()
 
-func _process(_delta):
-	check_event()
-
 func check_collision():
 	# When there is no collision
 	if mc.get_slide_count() <= 0:
@@ -67,12 +64,8 @@ func check_event():
 			main.scores[4] += 1
 	
 	if slide_collision.collider.is_in_group("Breakable"):
-		# When colliding with a pillar or midair
-		if tile_index == -1 or tile_index == 3:
-			mc.jumping = false
 		if tile_index == 11:
 			main.victory()
-			
 		# Changing speed on conveyors
 		var speed = 30
 		if mc.position.y < 230:
@@ -82,6 +75,5 @@ func check_event():
 			mc.velocity.x += speed
 		elif tile_index == 10:
 			mc.velocity.x -= speed
-		
 
 
