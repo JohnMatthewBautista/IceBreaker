@@ -18,6 +18,7 @@ config/name="Ice Breaker"
 run/main_scene="res://data/scenes/Start.tscn"
 boot_splash/image="res://data/sprites/splash.png"
 boot_splash/use_filter=false
+config/icon="res://IceBreaker.png"
 
 [autoload]
 
